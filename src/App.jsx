@@ -7,18 +7,21 @@ const App = () => {
   const [tasks, setTask] = useState([
     "Call client about project update",
     "Prepare meeting agenda",
-    // "Update project timeline",
-    // "Review pull requests",
-    // "Backup important files",
+    "Update project timeline",
+    "Review pull requests",
+    "Backup important files",
   ]);
   const addTask = (newTask) => {
     setTask([...tasks, newTask]);
   };
+  const removeTask = (taskToRemove) => {
+    setTask(tasks.filter((task) => task !== taskToRemove ))
+  }
   return (
     <div className="p-10">
       <Heading />
       <CreateTask addTask={addTask} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} removeTask={removeTask} />
     </div>
   );
 };
