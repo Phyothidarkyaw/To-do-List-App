@@ -1,11 +1,15 @@
 import { Trash2 } from "lucide-react";
+import useTaskStore from "../store/useTaskStore";
 
-const Task = ({ job: { id, task, isDone }, removeTask, doneTask }) => {
+const Task = ({ job: { id, task, isDone }}) => {
+  const {removeTask,doneTask} = useTaskStore();
+
   const handleDeleteBtn = () => {
     if (confirm("Are you want to delete?")) {
       removeTask(id);
     }
   };
+  
   const handleOnChange = () => {
     doneTask(id);
   };
