@@ -8,7 +8,7 @@ const TaskList = ({ tasks,removeTask }) => {
         Task Lists ( 0/{tasks.length} )
       </h3>
       {tasks.map((el) => (
-        <Task key={el} job={el} removeTask={removeTask} />
+        <Task key={el.id} job={el} removeTask={removeTask} />
       ))}
     </div>
   );

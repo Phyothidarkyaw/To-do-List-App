@@ -5,17 +5,37 @@ import TaskList from "./components/TaskList";
 
 const App = () => {
   const [tasks, setTask] = useState([
-    "Call client about project update",
-    "Prepare meeting agenda",
-    "Update project timeline",
-    "Review pull requests",
-    "Backup important files",
-  ]);
+  {
+    id: 1,
+    task: "Complete JavaScript project",
+    isDone: false
+  },
+  {
+    id: 2,
+    task: "Buy groceries",
+    isDone: true
+  },
+  {
+    id: 3,
+    task: "Call dentist for appointment",
+    isDone: false
+  },
+  {
+    id: 4,
+    task: "Pay electricity bill",
+    isDone: true
+  },
+  {
+    id: 5,
+    task: "Read 30 pages of book",
+    isDone: false
+  }
+]);
   const addTask = (newTask) => {
     setTask([...tasks, newTask]);
   };
-  const removeTask = (taskToRemove) => {
-    setTask(tasks.filter((task) => task !== taskToRemove ))
+  const removeTask = (id) => {
+    setTask(tasks.filter((task) => task.id !== id ))
   }
   return (
     <div className="p-10">
